@@ -1,6 +1,0 @@
-com\springboot\service\UserServiceImpl.class
-com\springboot\service\UserService.class
-com\springboot\controller\RestApiController.class
-com\springboot\SpringBootRestApiApp.class
-com\springboot\model\User.class
-com\springboot\util\CustomErrorType.class
