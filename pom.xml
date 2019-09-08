@@ -5,7 +5,7 @@
 	<groupId>com.springboot</groupId>
 	<artifactId>BootRestAPI</artifactId>
 	<version>1.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>BootRestAPI</name>
 
