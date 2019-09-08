@@ -1,3 +1,3 @@
 server:
   port: 9090
-  contextPath: /SpringBootRestApi
+  contextPath: /BootRestAPI-1.0.0
