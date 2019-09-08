@@ -1,21 +1,20 @@
-package com.springboot;
- 
 import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.springboot.model.User;
+import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestTemplate;
  
-
-public class SpringBootRestTestClient {
+public class SpringBootRestAPITests {
  
-    public static final String REST_SERVICE_URI = "http://localhost:8080/SpringBootRestApi/api";
+    public static final String REST_SERVICE_URI = "http://192.168.43.221:8080/BootRestAPI/";
      
     /* GET */
     @SuppressWarnings("unchecked")
-    private static void listAllUsers(){
-        System.out.println("Testing listAllUsers API-----------");
+    @Test
+    private static void listAllUsersTest(){
+        System.out.println("Testing listAllUsersTest API-----------");
          
         RestTemplate restTemplate = new RestTemplate();
         List<LinkedHashMap<String, Object>> usersMap = restTemplate.getForObject(REST_SERVICE_URI+"/user/", List.class);
@@ -30,6 +29,7 @@ public class SpringBootRestTestClient {
     }
      
     /* GET */
+    @Test
     private static void getUser(){
         System.out.println("Testing getUser API----------");
         RestTemplate restTemplate = new RestTemplate();
@@ -56,30 +56,30 @@ public class SpringBootRestTestClient {
     }
  
     /* DELETE */
-    private static void deleteUser() {
-        System.out.println("Testing delete User API----------");
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(REST_SERVICE_URI+"/user/3");
-    }
+//    private static void deleteUser() {
+//        System.out.println("Testing delete User API----------");
+//        RestTemplate restTemplate = new RestTemplate();
+//        restTemplate.delete(REST_SERVICE_URI+"/user/3");
+//    }
  
  
     /* DELETE */
-    private static void deleteAllUsers() {
-        System.out.println("Testing all delete Users API----------");
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(REST_SERVICE_URI+"/user/");
-    }
- 
-    public static void main(String args[]){
-        listAllUsers();
+//    private static void deleteAllUsers() {
+//        System.out.println("Testing all delete Users API----------");
+//        RestTemplate restTemplate = new RestTemplate();
+//        restTemplate.delete(REST_SERVICE_URI+"/user/");
+//    }
+    @Test
+    void test(){
+        listAllUsersTest();
         getUser();
         createUser();
-        listAllUsers();
+        listAllUsersTest();
         updateUser();
-        listAllUsers();
-        deleteUser();
-        listAllUsers();
-        deleteAllUsers();
-        listAllUsers();
+        listAllUsersTest();
+//        deleteUser();
+//        listAllUsersTest();
+//        deleteAllUsers();
+//        listAllUsersTest();
     }
 }
