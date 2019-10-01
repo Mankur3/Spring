@@ -6,7 +6,7 @@ pipeline {
         sh 'mvn clean install -DskipTests'
       }
     }
-    stage{
+    stage('Deploy'){
         steps{
         sh 'cp target/BootRestAPI.war /opt/tomcat/'
         }
