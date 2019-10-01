@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deploy'){
         steps{
-        sh 'cp target/BootRestAPI.war /opt/tomcat/'
+        sh 'cp target/BootRestAPI.war /opt/tomcat/webapps/'
         }
     }
   }

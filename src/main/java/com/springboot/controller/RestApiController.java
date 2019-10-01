@@ -36,7 +36,7 @@ public class RestApiController {
 				.mapToObj(i -> "Hello number " + i)
 				.collect(Collectors.toList());
 	}
-	@RequestMapping(value = "/user/", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
 		List<User> users = userService.findAllUsers();
 		if (users.isEmpty()) {
