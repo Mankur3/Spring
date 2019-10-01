@@ -7,6 +7,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication(scanBasePackages={"com.springboot"})
 
+//test
+
+
 public class SpringBootRestApiApp extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
