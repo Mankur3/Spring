@@ -1,10 +1,12 @@
 package com.springboot.controller;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.springboot.service.ProducerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +34,23 @@ public class RestApiController {
 	// -------------------Retrieve All Users---------------------------
 
 	@GetMapping("/hello")
-	public Collection<String> sayHello() {
+	public Collection<String> sayHello() throws IOException {
+		ProducerService p = new ProducerService();
+		p.sendMessage("Helllllo from Windoews ");
 		return IntStream.range(0, 10)
 				.mapToObj(i -> "Hello number " + i)
 				.collect(Collectors.toList());
+
 	}
 	@RequestMapping(value = "/users/", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> listAllUsers() {
+	public ResponseEntity<List<User>> listAllUsers() throws IOException {
 		List<User> users = userService.findAllUsers();
+		for(User x : users){
+			String a = users.get(0).getName();
+			ProducerService p = new ProducerService();
+			p.sendMessage(a);
+
+		}
 		if (users.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 					}
